@@ -245,13 +245,15 @@ public class LayerList extends GridPane {
    */
   private CheckBox muteButton(Layer layer, int layerIndex) {
     CheckBox mute = new CheckBox();
-    mute.setSelected(false);
     mute.getStyleClass().remove("check-box");
     mute.getStyleClass().add("mute-button");
 
+    mute.setSelected(layer.isMute());
+
     mute.setOnAction(e -> {
+      FileManager.UNSAVED_CHANGES_PROP.set(true);
       layer.toggleMute();
-      Player.toggleMuteLayer(layerIndex);
+      Player.setMuteLayer(layerIndex, layer.isMute());
     });
 
     Tooltip tooltip = new Tooltip("Mute Layer");

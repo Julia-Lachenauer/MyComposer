@@ -36,7 +36,7 @@ There is a wide variety of instruments to choose from!
 
 ## File Management
 
-In MyComposer, users can create new songs, open songs, save songs, and export songs as .midi files.
+In MyComposer, users can create new songs, open songs, save songs, and export songs as .midi files. Files are stored as .mycomposer files.
 
 ![File Menu](https://github.com/Julia-Lachenauer/MyComposer/blob/main/media/File_Menu.png)
 

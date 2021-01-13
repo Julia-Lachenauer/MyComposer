@@ -248,7 +248,7 @@ public class LayerGrid extends GridPane {
 
     if (!unit.isDrum()) {
       Label pitchOctave = new Label(
-          "Pitch: " + unit.getPitchFormat() + "   Octave: " + unit.getOctave());
+          "Pitch: " + unit.getPitch().getName() + "   Octave: " + unit.getOctave());
       pitchOctave.setStyle(styleString);
       tooltipBox.getChildren().add(pitchOctave);
     }

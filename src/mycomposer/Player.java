@@ -1,5 +1,6 @@
 package mycomposer;
 
+import java.util.List;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -11,6 +12,7 @@ import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
 import javax.sound.midi.Synthesizer;
+import mycomposer.model.Layer;
 import mycomposer.model.Song;
 import mycomposer.model.unit.Unit;
 
@@ -64,6 +66,7 @@ public final class Player {
    */
   public static void setSong(Song song, boolean resetBeat) throws IllegalArgumentException {
     try {
+
       FINAL_BEAT = song.getFinalBeat();
       TEMPO_PROP.setValue(song.getTempo());
 
@@ -77,6 +80,13 @@ public final class Player {
 
       Sequence sequence = MIDI.loadSong(song);
       sequencer.setSequence(sequence);
+
+      List<Layer> layerList = song.getLayers();
+
+      for (int i = 0; i < layerList.size(); i++) {
+        sequencer.setTrackMute(i, layerList.get(i).isMute());
+      }
+
       sequencer.setTickPosition(BEAT);
       sequencer.setTempoInBPM(TEMPO_PROP.floatValue());
 
@@ -202,8 +212,8 @@ public final class Player {
    *
    * @param layerIndex the index of the given layer to toggle mute on
    */
-  public static void toggleMuteLayer(int layerIndex) {
-    sequencer.setTrackMute(layerIndex, !sequencer.getTrackMute(layerIndex));
+  public static void setMuteLayer(int layerIndex, boolean mute) {
+    sequencer.setTrackMute(layerIndex, mute);
   }
 
   /**

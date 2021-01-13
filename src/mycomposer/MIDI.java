@@ -65,7 +65,7 @@ public final class MIDI {
         List<Layer> layers = song.getLayers();
 
         for (Layer layer : layers) {
-          if (!layer.isMute() && !layer.getUnits().isEmpty()) {
+          if (!layer.getUnits().isEmpty()) {
             Track track = sequence.createTrack();
             List<Unit> units = layer.getUnits();
 

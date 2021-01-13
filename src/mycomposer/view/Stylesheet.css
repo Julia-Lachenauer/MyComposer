@@ -1,0 +1,327 @@
+.root {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-style: solid;
+
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 11;
+    -fx-text-fill: #ADADAD;
+
+    -grid-border-color: #323234;
+    -grid-hover-color: #27272B;
+
+    -check-box-border-color: #323234;
+    -check-box-hover-color: #3D3D40;
+    -check-box-pressed-color: #2c2c2e;
+    -check-box-selected-color: #1e1e21;
+    -check-box-text-color: #ADADAD;
+    -check-mark-color: #F13147;
+
+    -numbers-background-color: #121212;
+    -numbers-text-color: #ADADAD;
+    -numbers-hover-text-color: #F13147;
+
+    -overlay-bar-color: rgba(83, 81, 84, 0.6);
+
+    -color-menu-background-color: #27272B;
+    -square-button-border-color: #121212;
+
+    -window-background-color: #151415;
+    -playback-bar-color: #1F1D20;
+    -pause-button-color: #F13147;
+
+    -layer-list-background-color: #121212;
+    -text-hover-color: rgba(211, 211, 211, 0.4);
+
+    -add-layer-hover-color: rgba(211, 211, 211, 0.5);
+    -add-layer-pressed-color: rgba(211, 211, 211, 0.3);
+
+    -mute-button-hover-color: rgba(12, 12, 12, 0.5);
+    -mute-button-selected-color: rgba(12, 12, 12, 0.7);
+    -mute-button-pressed-color: rgba(12, 12, 12, 0.8);
+
+    -slider-fill-color: #F13147;
+    -slider-bg-color: #121212;
+    -slider-pressed-color: #D62439;
+    -slider-hover-color: #F75467;
+
+    -scrollbar-track-color: #121212;
+    -scrollbar-thumb-color: #606060;
+    -scrollbar-hover-color: #A6A6A6;
+    -scrollbar-pressed-color: #929292;
+
+    -file-menu-background-color: #27272B;
+    -file-menu-text-color: #C7C7C7;
+
+    -accent-border-color: #949494;
+    -accent-hover-color: #F25769;
+    -accent-focus-color: #D93f4D;
+    -accent-pressed-color: #BF323F;
+}
+
+.root.popup {
+    -fx-border-color: transparent;
+}
+
+.tooltip {
+    -fx-font-family: "Helvetica";
+    -fx-text-fill: -file-menu-text-color;
+}
+
+.file-menu .label {
+    -fx-padding: 2 0 0 0;
+}
+
+.menu-bar {
+    -fx-background-color: transparent;
+}
+
+.menu {
+    -fx-font-family: "Helvetica";
+    -fx-text-fill: -file-menu-text-color;
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: -accent-border-color;
+}
+
+.menu .label {
+    -fx-text-fill: -file-menu-text-color;
+    -fx-padding: 5 0 0 0;
+}
+
+.menu-item {
+    -fx-border-width: 0;
+}
+
+.menu-item .label {
+    -fx-text-fill: -file-menu-text-color;
+}
+
+.menu-item:hover .label {
+    -fx-text-fill: -accent-hover-color;
+}
+
+.menu-item:selected .label {
+    -fx-text-fill: -accent-focus-color;
+}
+
+.menu-item:pressed .label, .menu-item:hover:pressed .label {
+    -fx-text-fill: -accent-pressed-color;
+}
+
+.context-menu {
+    -fx-background-color: -file-menu-background-color;
+    -fx-padding: 5;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: -file-menu-background-color;
+}
+
+.menu:hover, .menu:focused:hover {
+    -fx-border-color: -accent-hover-color;
+}
+
+.menu:selected, .menu:focused, .menu:expanded, .menu:showing {
+    -fx-border-color: -accent-focus-color;
+}
+
+.menu:pressed, .menu:hover:pressed, .menu:focused:pressed {
+    -fx-border-color: -accent-pressed-color;
+}
+
+.menu-item {
+    -fx-background-color: -file-menu-background-color;
+    -fx-text-fill: -file-menu-text-color;
+}
+
+.check-box {
+    -fx-text-fill: -check-box-text-color;
+}
+
+.check-box .box {
+    -fx-background-color: transparent;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-border-color: -check-box-border-color;
+}
+
+.check-box .box:hover {
+    -fx-border-color: -check-box-hover-color;
+}
+
+.check-box .box:selected {
+    -fx-border-color: -check-box-selected-color;
+}
+
+.check-box .box:pressed, .check-box .box:hover:pressed {
+    -fx-border-color: -check-box-pressed-color;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: -check-mark-color;
+}
+
+.pause-button {
+    -fx-background-color: -pause-button-color;
+    -fx-background-radius: 60;
+    -fx-border-radius: 60;
+}
+
+.pause-button:pressed, .pause-button:hover:pressed {
+    -fx-scale-x: 0.8;
+    -fx-scale-y: 0.8;
+}
+
+.mute-button {
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+}
+
+.mute-button:hover, .mute-button:selected:hover {
+    -fx-background-color: -mute-button-hover-color;
+}
+
+.mute-button:selected {
+    -fx-background-color: -mute-button-selected-color;
+}
+
+.mute-button:pressed, .mute-button:hover:pressed {
+    -fx-background-color: -mute-button-pressed-color;
+}
+
+.layer-list-padding {
+    -fx-background-color: -numbers-background-color;
+    -fx-border-width: 0;
+    -fx-min-height: 15;
+    -fx-max-height: 15;
+}
+
+.plus-button {
+    -fx-font-family: "Courier New";
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-text-fill: -numbers-text-color;
+    -fx-font-size: 14;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+}
+
+.plus-button:hover {
+    -fx-background-color: -add-layer-hover-color;
+}
+
+.plus-button:pressed, .plus-button:hover:pressed {
+    -fx-background-color: -add-layer-pressed-color;
+}
+
+.scroll-pane {
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: -scrollbar-track-color;
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal {
+    -fx-pref-height: 15;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.scroll-bar:horizontal .track, .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.scroll-bar:horizontal .thumb, .scroll-bar:vertical .thumb {
+    -fx-background-color: -scrollbar-thumb-color;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.scroll-bar:horizontal .thumb:hover, .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: -scrollbar-hover-color;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.scroll-bar:horizontal .thumb:pressed, .scroll-bar:vertical .thumb:pressed {
+    -fx-background-color: -scrollbar-pressed-color;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: -scrollbar-track-color;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+
+.color-menu .scroll-arrow {
+    -fx-padding: 0 0 0 0;
+}
+
+.color-menu {
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.color-menu .color-menu-item {
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.slider {
+    -slider-track-color: -slider-fill-color;
+}
+
+.slider .thumb {
+    -fx-background-color: -slider-fill-color;
+}
+
+.slider .thumb:hover {
+    -fx-background-color: -slider-hover-color;
+}
+
+.slider .thumb:pressed, .slider .thumb:hover:pressed {
+    -fx-background-color: -slider-pressed-color;
+}
+
+.slider .track {
+    -fx-background-color: -slider-track-color;
+}
+
+.color-toggle-button {
+    -fx-border-width: 0;
+    -fx-border-radius: 0;
+}
+
+.color-toggle-button:hover {
+    -fx-border-width: 2;
+    -fx-border-color: -square-button-border-color;
+}
+
+.color-toggle-button:selected {
+    -fx-border-width: 3;
+    -fx-border-color: -square-button-border-color;
+}
+
+.color-toggle-button:pressed, .color-toggle-button:hover:pressed {
+    -fx-border-width: 4;
+    -fx-border-color: -square-button-border-color;
+}

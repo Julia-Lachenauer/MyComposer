@@ -29,3 +29,17 @@ Once a layer has been added, it can be edited by double-clicking on it.
 Note and drum beats can be edited by clicking on them once they are on the grid.
 
 ![Edit Drum Beat](https://github.com/Julia-Lachenauer/MyComposer/blob/main/media/Edit_Drum.png)
+
+There is a wide variety of instruments to choose from!
+
+![Choose_Instrument](https://github.com/Julia-Lachenauer/MyComposer/blob/main/media/Choose_Instrument.png)
+
+## File Management
+
+In MyComposer, users can create new songs, open songs, save songs, and export songs as .midi files.
+
+![File Menu](https://github.com/Julia-Lachenauer/MyComposer/blob/main/media/File_Menu.png)
+
+You will be reminded if you have unsaved changes before quitting the program or opening another song.
+
+![Unsaved Changes](https://github.com/Julia-Lachenauer/MyComposer/blob/main/media/Unsaved_Changes.png)

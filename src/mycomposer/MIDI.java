@@ -74,8 +74,8 @@ public final class MIDI {
               ShortMessage endMessage = new ShortMessage();
 
               if (unit.isDrum()) {
-                startMessage.setMessage(144, 9, unit.getInstrument(), layer.getVolume());
-                endMessage.setMessage(128, 9, unit.getInstrument(), layer.getVolume());
+                startMessage.setMessage(144, 9, unit.getInstrument() + 1, layer.getVolume());
+                endMessage.setMessage(128, 9, unit.getInstrument() + 1, layer.getVolume());
               } else {
                 ShortMessage instrumentChange = new ShortMessage();
                 instrumentChange.setMessage(192, 1, unit.getInstrument(), 0);

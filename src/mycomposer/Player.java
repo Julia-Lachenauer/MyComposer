@@ -213,7 +213,7 @@ public final class Player {
    */
   public static void playUnit(Unit unit) {
     if (unit.isDrum()) {
-      channels[9].noteOn(unit.getInstrument(), 50);
+      channels[9].noteOn(unit.getInstrument() + 1, 50);
     } else {
       channels[0].programChange(unit.getInstrument());
       channels[0].noteOn(unit.getMIDINumber(), 50);

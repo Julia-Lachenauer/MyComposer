@@ -21,7 +21,7 @@ public final class Note extends UnitImpl {
    * @param octave     the octave of the note
    * @throws IllegalArgumentException if the start beat is after the end beat, the instrument index
    *                                  is less than 0 or greater than 127, or the octave is less than
-   *                                  -1 or greater than 8
+   *                                  -1 or greater than 7
    */
   public Note(int startBeat, int endBeat, int instrument, Pitch pitch, int octave)
       throws IllegalArgumentException {
@@ -31,8 +31,8 @@ public final class Note extends UnitImpl {
       throw new IllegalArgumentException("Instrument MIDI index must be from 0-127 inclusive.");
     }
 
-    if (octave < -1 || octave > 8) {
-      throw new IllegalArgumentException("Octave must be from -1 through 8 inclusive.");
+    if (octave < -1 || octave > 7) {
+      throw new IllegalArgumentException("Octave must be from -1 through 7 inclusive.");
     }
 
     this.pitch = pitch;
@@ -75,8 +75,8 @@ public final class Note extends UnitImpl {
 
   @Override
   public void setOctave(int octave) throws IllegalArgumentException {
-    if (octave < -1 || octave > 8) {
-      throw new IllegalArgumentException("Octave must be from -1 through 8 inclusive.");
+    if (octave < -1 || octave > 7) {
+      throw new IllegalArgumentException("Octave must be from -1 through 7 inclusive.");
     }
 
     this.octave = octave;

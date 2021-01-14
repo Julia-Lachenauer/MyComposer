@@ -111,7 +111,7 @@ public interface Unit extends Comparable<Unit> {
    * Sets the octave of this unit to the given octave. Does nothing for drum beats.
    *
    * @param octave the new octave for this unit
-   * @throws IllegalArgumentException if the new octave is less than -1 or greater than 8
+   * @throws IllegalArgumentException if the new octave is less than -1 or greater than 7
    */
   void setOctave(int octave) throws IllegalArgumentException;
 

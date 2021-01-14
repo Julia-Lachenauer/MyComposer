@@ -1,6 +1,5 @@
 package mycomposer.view;
 
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.Tooltip;
@@ -12,7 +11,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import mycomposer.MIDI;
@@ -73,17 +71,10 @@ public class LayerGrid extends GridPane {
       cell.setOnMouseClicked(e -> {
         if (e.getButton() == MouseButton.PRIMARY) {
           pausePopup.run();
-          Stage addNoteStage = new Stage();
           TabPane addNotePopup = new UnitPopup(layer, beat, refresh, unpausePopup);
 
-          Scene addNoteScene = new Scene(addNotePopup, 350, 350);
-          addNoteScene.getStylesheets().add("mycomposer/view/Popup.css");
-          addNoteStage.setScene(addNoteScene);
-
-          addNoteStage.initOwner(this.getScene().getWindow());
-          addNoteStage.initModality(Modality.WINDOW_MODAL);
-          addNoteStage.setResizable(false);
-          addNoteStage.setTitle("Add Note");
+          Stage addNoteStage = new PopupWindow((Stage) this.getScene().getWindow(), addNotePopup,
+              "Add Note");
 
           addNoteStage.show();
           addNotePopup.requestFocus();
@@ -154,18 +145,11 @@ public class LayerGrid extends GridPane {
     colorLayer.setOnMouseClicked(e -> {
       if (e.getButton() == MouseButton.PRIMARY) {
         this.pause.run();
-        Stage addNoteStage = new Stage();
         TabPane addNotePopup = new UnitPopup(unit, this.layer, unit.getStartBeat(), this.refresh,
             this.unpause);
 
-        Scene addNoteScene = new Scene(addNotePopup, 350, 350);
-        addNoteScene.getStylesheets().add("mycomposer/view/Popup.css");
-        addNoteStage.setScene(addNoteScene);
-
-        addNoteStage.initOwner(this.getScene().getWindow());
-        addNoteStage.initModality(Modality.WINDOW_MODAL);
-        addNoteStage.setResizable(false);
-        addNoteStage.setTitle("Edit Note");
+        Stage addNoteStage = new PopupWindow((Stage) this.getScene().getWindow(), addNotePopup,
+            "Edit Note");
 
         addNoteStage.show();
         addNotePopup.requestFocus();

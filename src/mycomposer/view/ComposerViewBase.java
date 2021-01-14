@@ -10,7 +10,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.ScrollPane;
@@ -24,7 +23,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import mycomposer.Player;
@@ -291,18 +289,11 @@ public class ComposerViewBase extends BorderPane implements ComposerView {
 
     addLayerButton.setOnAction(e -> {
       this.pauseFromPopup();
-      Stage addLayerStage = new Stage();
       LayerPopup layerPopup = new LayerPopup(this.features::addLayer, this.features::removeLayer,
           this.features::refresh);
 
-      Scene addLayerScene = new Scene(layerPopup, 350, 350);
-      addLayerScene.getStylesheets().add("mycomposer/view/Popup.css");
-      addLayerStage.setScene(addLayerScene);
-
-      addLayerStage.initOwner(this.getScene().getWindow());
-      addLayerStage.initModality(Modality.WINDOW_MODAL);
-      addLayerStage.setResizable(false);
-      addLayerStage.setTitle("New Layer");
+      Stage addLayerStage = new PopupWindow((Stage) this.getScene().getWindow(), layerPopup,
+          "New Layer");
 
       addLayerStage.show();
       layerPopup.requestFocus();

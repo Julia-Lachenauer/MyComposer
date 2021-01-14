@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -67,6 +68,7 @@ public class SaveDialogue {
 
     Scene saveScene = new Scene(saveBox);
     saveScene.getStylesheets().add("mycomposer/view/Popup.css");
+    saveStage.getIcons().add(new Image("/resources/icon.png"));
 
     saveStage.setTitle("Unsaved Changes");
     saveStage.setScene(saveScene);

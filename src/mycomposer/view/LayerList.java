@@ -7,7 +7,6 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
@@ -24,7 +23,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import mycomposer.FileManager;
@@ -130,18 +128,11 @@ public class LayerList extends GridPane {
     borderPane.setOnMouseClicked(e -> {
       if (e.getClickCount() == 2) {
         this.pausePopup.run();
-        Stage editLayerStage = new Stage();
         LayerPopup layerPopup = new LayerPopup(layer, this.addLayer, this.removeLayer,
             this.refresh);
 
-        Scene addLayerScene = new Scene(layerPopup, 350, 350);
-        addLayerScene.getStylesheets().add("mycomposer/view/Popup.css");
-        editLayerStage.setScene(addLayerScene);
-
-        editLayerStage.initOwner(this.getScene().getWindow());
-        editLayerStage.initModality(Modality.WINDOW_MODAL);
-        editLayerStage.setResizable(false);
-        editLayerStage.setTitle("Edit Layer");
+        PopupWindow editLayerStage = new PopupWindow((Stage) this.getScene().getWindow(),
+            layerPopup, "Edit Layer");
 
         editLayerStage.show();
         layerPopup.requestFocus();

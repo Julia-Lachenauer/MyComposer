@@ -72,6 +72,8 @@ public class LayerPopup extends VBox {
       if (ke.getCode() == KeyCode.ESCAPE) {
         Stage stage = (Stage) this.getScene().getWindow();
         stage.close();
+      } else if (ke.getCode() == KeyCode.ENTER) {
+        this.confirm();
       }
     });
 
@@ -118,7 +120,7 @@ public class LayerPopup extends VBox {
    */
   private HBox buttonBox() {
     HBox buttonBox = new HBox();
-    buttonBox.getChildren().add(this.confirm());
+    buttonBox.getChildren().add(this.confirmButton());
     buttonBox.setPadding(new Insets(20, 0, 0, 0));
 
     if (this.layer != null) {
@@ -217,6 +219,12 @@ public class LayerPopup extends VBox {
       colorSquare.setMaxSize(30, 30);
       colorSquare.setStyle("-fx-background-color: " + layerColor.getHexCode() + ";");
 
+      colorSquare.setOnKeyPressed(e -> {
+        if (e.getCode() == KeyCode.ENTER) {
+          this.confirm();
+        }
+      });
+
       colorSquare.setUserData(layerColor);
       colorSquare.setToggleGroup(this.toggleGroup);
       flowPane.getChildren().add(colorSquare);
@@ -237,7 +245,7 @@ public class LayerPopup extends VBox {
    *
    * @return a button to confirm either the changes to the layer or the creation of a new layer
    */
-  private Button confirm() {
+  private Button confirmButton() {
     Button confirm;
 
     if (this.layer != null) {
@@ -246,43 +254,48 @@ public class LayerPopup extends VBox {
       confirm = new Button("Add layer");
     }
 
-    confirm.setOnAction(e -> {
-      try {
-        String name = this.nameField.getText();
-        int volume = (int) this.volumeSlider.getValue();
-        LayerColor layerColor = LayerColor.valueOf(
-            this.toggleGroup.getSelectedToggle().getUserData().toString());
-
-        if (this.layer != null) {
-          try {
-            this.layer.setColor(layerColor);
-            this.layer.setVolume(volume);
-            this.layer.setName(name);
-            this.refresh.run();
-            FileManager.UNSAVED_CHANGES_PROP.set(true);
-
-            this.close();
-          } catch (IllegalArgumentException iae) {
-            ErrorPopup.showError(this.getScene().getWindow(), iae.getMessage());
-          }
-        } else {
-          try {
-            Layer newLayer = new Layer(name, volume, layerColor, false);
-            this.addLayer.accept(newLayer);
-            FileManager.UNSAVED_CHANGES_PROP.set(true);
-
-            this.close();
-          } catch (IllegalArgumentException iae) {
-            ErrorPopup.showError(this.getScene().getWindow(), iae.getMessage());
-          }
-        }
-
-      } catch (NullPointerException npe) {
-        ErrorPopup.showError(this.getScene().getWindow(), "All items must be filled in.");
-      }
-    });
+    confirm.setOnAction(e -> this.confirm());
 
     return confirm;
+  }
+
+  /**
+   * Attempts to confirm the new layer or the edits to an existing layer.
+   */
+  private void confirm() {
+    try {
+      String name = this.nameField.getText();
+      int volume = (int) this.volumeSlider.getValue();
+      LayerColor layerColor = LayerColor.valueOf(
+          this.toggleGroup.getSelectedToggle().getUserData().toString());
+
+      if (this.layer != null) {
+        try {
+          this.layer.setColor(layerColor);
+          this.layer.setVolume(volume);
+          this.layer.setName(name);
+          this.refresh.run();
+          FileManager.UNSAVED_CHANGES_PROP.set(true);
+
+          this.close();
+        } catch (IllegalArgumentException iae) {
+          ErrorPopup.showError(this.getScene().getWindow(), iae.getMessage());
+        }
+      } else {
+        try {
+          Layer newLayer = new Layer(name, volume, layerColor, false);
+          this.addLayer.accept(newLayer);
+          FileManager.UNSAVED_CHANGES_PROP.set(true);
+
+          this.close();
+        } catch (IllegalArgumentException iae) {
+          ErrorPopup.showError(this.getScene().getWindow(), iae.getMessage());
+        }
+      }
+
+    } catch (NullPointerException npe) {
+      ErrorPopup.showError(this.getScene().getWindow(), "All items must be filled in.");
+    }
   }
 
   /**

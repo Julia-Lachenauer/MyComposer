@@ -28,7 +28,7 @@ Once a layer has been added, it can be edited by double-clicking on it.
 
 ![Add Note](https://github.com/Julia-Lachenauer/MyComposer/blob/main/media/Add_Note.png)
 
-Note and drum beats can be edited by clicking on them once they are on the grid.
+Notes and drum beats can be edited by clicking on them once they are on the grid.
 
 ![Edit Drum Beat](https://github.com/Julia-Lachenauer/MyComposer/blob/main/media/Edit_Drum.png)
 

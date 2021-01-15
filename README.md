@@ -6,7 +6,7 @@ A list of the recently opened files is saved to the Documents folder in a folder
 
 **If you have a file named `recents.txt` within a folder called MyComposer in the Documents folder, this file will be written over.**
 
-# [Click here to watch a video demonstration!](https://drive.google.com/file/d/1sFEdAhu_VyUBTONTRXexkXhrX3o6vzk4/view?usp=sharing)
+# [Click here to watch a video demonstration of MyComposer!](https://drive.google.com/file/d/1sFEdAhu_VyUBTONTRXexkXhrX3o6vzk4/view?usp=sharing)
 
 # Features
 

@@ -8,8 +8,6 @@ A list of the recently opened files is saved to the Documents folder in a folder
 
 # [Click here to watch a video demonstration!](https://drive.google.com/file/d/1sFEdAhu_VyUBTONTRXexkXhrX3o6vzk4/view?usp=sharing)
 
-![MyCalendar](https://github.com/Julia-Lachenauer/MyComposer/blob/main/media/Main_Screen.png)
-
 # Features
 
 ## Layers
